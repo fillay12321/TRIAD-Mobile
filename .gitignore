@@ -1,7 +1,18 @@
+# Rust specific ignores
 /target/
 **/*.rs.bk
 Cargo.lock
 .env
 .idea/
 .vscode/
-*.pdb 
+*.pdb
+
+# IDE specific ignores
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific ignores
+.DS_Store
+Thumbs.db
