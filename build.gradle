@@ -1,7 +1,7 @@
 // Основной файл конфигурации Gradle для проекта TRIAD Mobile App
 buildscript {
     ext {
-        kotlin_version = '1.8.0'
+        kotlin_version = '1.8.10'
         compose_version = '1.4.3'
     }
     repositories {
