@@ -36,4 +36,7 @@
     <color name="background">#F5F5F5</color>
     <color name="card_background">#FFFFFF</color>
     <color name="ripple">#33000000</color>
+    
+    <!-- Цвет фона иконки приложения -->
+    <color name="ic_launcher_background">#3F51B5</color>
 </resources> 
