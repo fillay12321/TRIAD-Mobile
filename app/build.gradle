@@ -45,7 +45,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion compose_version
-        kotlinCompilerVersion kotlin_version
     }
     packagingOptions {
         resources {
@@ -102,6 +101,13 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.5.2'
     implementation 'androidx.room:room-ktx:2.5.2'
     kapt 'androidx.room:room-compiler:2.5.2'
+    
+    // DataStore для хранения настроек
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
+    implementation 'androidx.datastore:datastore-preferences-core:1.0.0'
+    // Если используется Proto DataStore, раскомментируйте следующие строки
+    // implementation 'androidx.datastore:datastore:1.0.0'
+    // implementation 'com.google.protobuf:protobuf-javalite:3.18.0'
     
     // Зависимости для тестирования
     testImplementation 'junit:junit:4.13.2'
