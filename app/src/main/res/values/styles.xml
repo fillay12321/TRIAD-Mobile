@@ -88,4 +88,17 @@
         <item name="android:layout_marginBottom">4dp</item>
     </style>
 
+    <!-- Стиль для приложения без SplashScreen API -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <!-- Базовый стиль для SplashScreen, не требующий API 31 -->
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
+    </style>
+
 </resources> 

@@ -89,6 +89,9 @@ dependencies {
     // Кошелек и криптография
     implementation 'org.web3j:core:4.9.8'
     
+    // Splash Screen
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    
     // Room для хранения данных
     implementation 'androidx.room:room-runtime:2.5.2'
     implementation 'androidx.room:room-ktx:2.5.2'

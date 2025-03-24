@@ -5,6 +5,8 @@
     <color name="primary_dark">#303F9F</color>
     <color name="primary_light">#C5CAE9</color>
     <color name="accent">#FF4081</color>
+    <color name="secondary">#FF4081</color>
+    <color name="secondary_dark">#C2185B</color>
     
     <!-- Дополнительные цвета TRIAD -->
     <color name="triad_blue">#2196F3</color>
