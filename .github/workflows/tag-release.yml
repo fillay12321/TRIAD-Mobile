@@ -1,0 +1,94 @@
+name: Create Release on Tag
+
+on:
+  push:
+    tags:
+      - 'v*' # Срабатывает при создании тега, начинающегося с v (например, v1.0.0)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: gradle
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Make gradlew executable
+        run: chmod +x TRIAD_Mobile_app/gradlew
+
+      - name: Build Debug and Release APK
+        working-directory: TRIAD_Mobile_app
+        run: |
+          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleRelease --stacktrace
+
+      # Получаем версию из тега
+      - name: Get Tag Version
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+        
+      # Подписываем релизную версию
+      - name: Sign Release APK
+        id: sign_app
+        uses: r0adrunner/sign-android-release@v1
+        with:
+          releaseDirectory: TRIAD_Mobile_app/app/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          BUILD_TOOLS_VERSION: "34.0.0"
+
+      # Создаем релиз
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ steps.get_version.outputs.VERSION }}
+          draft: false
+          prerelease: false
+          body: |
+            ## TRIAD Mobile App ${{ steps.get_version.outputs.VERSION }}
+            
+            Автоматически созданный релиз для версии ${{ steps.get_version.outputs.VERSION }}
+            
+            ### Что нового:
+            - Обновление версии приложения до ${{ steps.get_version.outputs.VERSION }}
+            
+            ### Установка:
+            Скачайте APK файл и установите его на устройство Android.
+      
+      # Загружаем debug APK
+      - name: Upload Debug APK
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: TRIAD_Mobile_app/app/build/outputs/apk/debug/app-debug.apk
+          asset_name: app-debug-${{ steps.get_version.outputs.VERSION }}.apk
+          asset_content_type: application/vnd.android.package-archive
+          
+      # Загружаем подписанный release APK  
+      - name: Upload Release APK
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ steps.sign_app.outputs.signedReleaseFile }}
+          asset_name: triad-mobile-${{ steps.get_version.outputs.VERSION }}.apk
+          asset_content_type: application/vnd.android.package-archive 
