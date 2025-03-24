@@ -1,0 +1,93 @@
+<resources>
+    <string name="app_name">TRIAD Кошелек</string>
+    
+    <!-- Общие строки -->
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="close">Закрыть</string>
+    <string name="back">Назад</string>
+    <string name="next">Далее</string>
+    <string name="confirm">Подтвердить</string>
+    <string name="loading">Загрузка…</string>
+    <string name="error">Ошибка</string>
+    
+    <!-- Навигация -->
+    <string name="nav_wallet">Кошелек</string>
+    <string name="nav_transactions">Транзакции</string>
+    <string name="nav_explorer">Обозреватель</string>
+    <string name="nav_settings">Настройки</string>
+    
+    <!-- Экран кошелька -->
+    <string name="wallet_title">Мой кошелек</string>
+    <string name="wallet_balance">Баланс</string>
+    <string name="wallet_send">Отправить</string>
+    <string name="wallet_receive">Получить</string>
+    <string name="wallet_refresh">Обновить</string>
+    
+    <!-- Экран транзакций -->
+    <string name="transaction_title">Транзакции</string>
+    <string name="transaction_empty">У вас пока нет транзакций</string>
+    <string name="transaction_send">Отправка</string>
+    <string name="transaction_receive">Получение</string>
+    <string name="transaction_date">Дата</string>
+    <string name="transaction_amount">Сумма</string>
+    <string name="transaction_fee">Комиссия</string>
+    <string name="transaction_details">Детали транзакции</string>
+    <string name="transaction_success">Успешно</string>
+    <string name="transaction_pending">В обработке</string>
+    <string name="transaction_failed">Не выполнено</string>
+    
+    <!-- Экран обозревателя блокчейна -->
+    <string name="explorer_title">Обозреватель блокчейна</string>
+    <string name="explorer_blocks">Блоки</string>
+    <string name="explorer_transactions">Транзакции</string>
+    <string name="explorer_validators">Валидаторы</string>
+    <string name="explorer_search">Поиск по хешу или адресу</string>
+    <string name="explorer_block_details">Детали блока</string>
+    
+    <!-- Экран настроек -->
+    <string name="settings_title">Настройки</string>
+    <string name="settings_network">Сеть</string>
+    <string name="settings_mainnet">Основная сеть</string>
+    <string name="settings_testnet">Тестовая сеть</string>
+    <string name="settings_backup">Резервная копия</string>
+    <string name="settings_security">Безопасность</string>
+    <string name="settings_about">О приложении</string>
+    <string name="settings_version">Версия</string>
+    
+    <!-- Экран отправки средств -->
+    <string name="send_title">Отправить средства</string>
+    <string name="send_recipient">Адрес получателя</string>
+    <string name="send_amount">Сумма</string>
+    <string name="send_fee">Комиссия</string>
+    <string name="send_total">Итого</string>
+    <string name="send_note">Примечание (опционально)</string>
+    <string name="send_button">Отправить</string>
+    <string name="send_scan_qr">Сканировать QR-код</string>
+    <string name="send_success">Средства успешно отправлены</string>
+    <string name="send_validation_address">Введите корректный адрес</string>
+    <string name="send_validation_amount">Введите корректную сумму</string>
+    <string name="send_validation_insufficient">Недостаточно средств</string>
+    
+    <!-- Экран получения средств -->
+    <string name="receive_title">Получить средства</string>
+    <string name="receive_address">Ваш адрес</string>
+    <string name="receive_qr_code">QR-код вашего адреса</string>
+    <string name="receive_copy">Скопировать адрес</string>
+    <string name="receive_share">Поделиться адресом</string>
+    <string name="receive_copied">Адрес скопирован</string>
+    
+    <!-- Создание/импорт кошелька -->
+    <string name="create_wallet">Создать кошелек</string>
+    <string name="import_wallet">Импортировать кошелек</string>
+    <string name="backup_seed">Резервная фраза</string>
+    <string name="backup_instructions">Запишите эти 12 слов в безопасном месте. Они понадобятся вам для восстановления кошелька.</string>
+    <string name="backup_confirm">Я записал фразу</string>
+    <string name="seed_verify">Подтвердите свою фразу</string>
+    <string name="seed_verify_instructions">Выберите слова в правильном порядке</string>
+    <string name="import_seed_instructions">Введите 12 слов мнемонической фразы, разделенных пробелами</string>
+    <string name="import_private_key">Приватный ключ</string>
+    <string name="create_password">Создайте пароль</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="password_mismatch">Пароли не совпадают</string>
+</resources> 
