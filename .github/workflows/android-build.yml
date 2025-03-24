@@ -2,7 +2,7 @@ name: Android Build
 
 on:
   push:
-    branches: [ main, kotlin-update ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:  # Позволяет запускать workflow вручную из интерфейса GitHub
